@@ -1,40 +1,3 @@
-class ToDoList {
-    constructor() {
-        this.tasks =  [
-            {task: 'Go to Dentist', isComplete: false},
-            {task: 'Do Gardening', isComplete: true},
-            {task: 'Renew Library Account', isComplete: false}
-        ];
-        this.loadTasks = this.loadTasks.bind(this);
-        this.loadTasks();
-    }
-    generateTaskHtml(task, index) {
-        return `
-          <li class="list-group-item checkbox">
-            <div class="row">
-              <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 checkbox">
-                <label><input id="toggleTaskStatus" type="checkbox" value="" class="" 
-                ${(task.isComplete)?"checked":""}>
-                </label>
-              </div>
-              <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text ${(task.isComplete)?"checked":""}">
-                ${task.task}
-              </div>
-              <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 delete-icon-area">
-                <a class="" href="/" ><i id="deleteTask" class="delete-icon glyphicon glyphicon-trash"></i></a>
-              </div>
-            </div>
-          </li>
-        `;
-    }
-
-    loadTasks() {
-
-        let tasksHtml = this.tasks.reduce((html,task,index) => html += this.generateTaskHtml(task,index),'');
-        document.getElementById("taskList").innerHTML = tasksHtml;
-    }
-
-}
 /*  Create a class called ToDoList
     PART 1 - Show the tasks
     -   Add a constructor
@@ -65,8 +28,60 @@ class ToDoList {
                     '')
         -   Set contents of the taskList element on the page to the tasksHtml variable
         );
-    END OF PART 1 - TEST AND DEBUG YOUR CODE - YOU SHOULD SEE 3 TASKS ON PAGE
+    END OF PART 1 - TEST AND DEBUG YOUR CODE - YOU SHOULD SEE 3 TASKS ON PAGE */
+class ToDoList {
+    constructor() {
+        this.tasks =  [
+            {task: 'Go to Dentist', isComplete: false},
+            {task: 'Do Gardening', isComplete: true},
+            {task: 'Renew Library Account', isComplete: false}
+        ];
+        this.loadTasks = this.loadTasks.bind(this);
+        this.loadTasks();
+    }
+    generateTaskHtml(task, index) {
+        
+        return `
+          <li class="list-group-item checkbox">
+           <div class="row">
+              <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 checkbox">
+                <label><input id="toggleTaskStatus" type="checkbox" value="" class="" 
+                ${(task.isComplete)?"checked":""}
+                onchange = "toDo.toggleTaskStatus(${index})">
+                </label>
+              </div>
+              <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text ${(task.isComplete)?"checked":""}">
+                ${task.task}
+              </div>
+              <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 delete-icon-area">
+                <a class="" href="/" onclick = "toDo.deleteTask(event, ${index})"><i id="deleteTask" class="delete-icon glyphicon glyphicon-trash"></i></a>
+              </div>
+            </div>
+          </li>
+        `;
+    }
 
+    loadTasks() {
+
+        let tasksHtml = this.tasks.reduce((html,task,index) => html += this.generateTaskHtml(task,index),'');
+        document.getElementById("taskList").innerHTML = tasksHtml;
+    }
+    toggleTaskStatus(tIndex) {
+        if (this.tasks[tIndex].isComplete)
+        {
+            this.tasks[tIndex].isComplete = false;
+        }
+        else
+        {
+            this.tasks[tIndex].isComplete = true;
+        }
+
+        this.loadTasks();
+
+    }
+
+}
+/*
     PART 2 - Toggle task status
     -   Add the toggleTaskStatus method.  It has ONE parameter, the index of the task
         -   Change the isCompete property for the current task to its opposite
