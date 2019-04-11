@@ -123,21 +123,8 @@ class ToDoList {
     Use and arrow or anonymous function
 */
 //
-function generateTaskHtml(task, index) {
-    return `
-      <li class="list-group-item checkbox">
-        <div class="row">
-          <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 checkbox">
-            <label><input id="toggleTaskStatus" type="checkbox" value="" class="" IS IT CHECKED></label>
-          </div>
-          <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text SHOULD IT HAVE THE CHECKED CLASS">
-            TASK GOES HERE
-          </div>
-          <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 delete-icon-area">
-            <a class="" href="/" ><i id="deleteTask" class="delete-icon glyphicon glyphicon-trash"></i></a>
-          </div>
-        </div>
-      </li>
-    `;
-}
+
+
+let toDo;
+window.onload = () => {toDo = new ToDoList()};
 
