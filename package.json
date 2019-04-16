@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LCC-CIT-Programming-CS233JS/lcc-cit-programming-cs233js-todolist-paynem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LCC-CIT-Programming-CS233JS/lcc-cit-programming-cs233js-todolist-paynem/issues"
+  },
+  "homepage": "https://github.com/LCC-CIT-Programming-CS233JS/lcc-cit-programming-cs233js-todolist-paynem#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "http-server": "^0.11.1"
+  }
+}
