@@ -50,7 +50,7 @@ class ToDoList {
                 onchange = "toDo.toggleTaskStatus(${index})">
                 </label>
               </div>
-              <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text ${(task.isComplete)?"checked":""}">
+              <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text ${(task.isComplete)?"complete":""}">
                 ${task.task}
               </div>
               <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 delete-icon-area">
