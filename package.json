@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "babel src -d dist --presets=es2015 -ws",
+    "build": "rm -rf dist && babel src -d dist --presets=es2015",
+    "serve": "http-server",
+    "wServe": "concurrently \"npm run watch\" \"npm run serve\""
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LCC-CIT-Programming-CS233JS/lcc-cit-programming-cs233js-todolist-paynem.git"
